@@ -1,24 +1,30 @@
 # str[i]
 # pattern[j]
-def match(str,pattern,i,j):
+# （1）pattern为.---匹配，都后移一位
+# （2）pattern为ch，且str为ch，匹配，都后移一位
+# pattern第二个字符不为* ，（1）（2）
+# pattern第二个字符为*，第一个字符匹配0次，str不变，pattern移两位；
+#                     第一个字符可匹配，即（1）（2），str移一位，pattern不变
+def match(str,pattern):
     if len(str) == 0 and len(pattern)== 0:
         return True
-    if len(str) != 0 or len(pattern)== 0:
+    if len(str) != 0 and len(pattern)== 0:
         return False
-    if pattern[j+1] == '*':
-        if pattern[j] == str[i] or (pattern[j] == '.' and len(str) != 0):
+    if len(pattern) > 1  and pattern[1] == '*':
+        if len(str) > 0 and (pattern[0] == str[0] or pattern[0] == '.'):
             # 进入有限状态机的下一个状态
             # 继续留在有限状态机的当前状态
             # 略过一个'*'
-            return match(str,pattern,i+1,j+2) \
-                   or match(str,pattern,i+1,j) \
-                   or match(str,pattern,i,j+2)
+            # 不能用i和j，因为用i和j时递归时字符串长度还是原长度
+            # return match(str,pattern,i+1,j) or match(str,pattern,i,j+2)
+            return match(str[1:], pattern) or match(str, pattern[2:])
+
         else:
             # 略过一个'*'
-            return match(str,pattern,i,j+2)
+            return match(str,pattern[2:])
 
-    if str[i] == pattern[j] or (pattern[j] == '.' and len(str) != 0):
-        return match(str,pattern,i+1,j+1)
+    if len(str) > 0 and (str[0] == pattern[0] or pattern[0] == '.'):
+        return match(str[1:],pattern[1:])
 
     return False
 # ====================测试代码====================
@@ -27,7 +33,7 @@ def Test(testName,string,pattern,expected):
     if(len(testName) != 0):
         print(testName+"begins: " );
 
-    if(match(string, pattern,0,0) == expected):
+    if(match(string, pattern) == expected):
         print("Passed.\n");
     else:
         print("FAILED.\n");
@@ -66,6 +72,7 @@ def main():
     Test("Test30", "bcbbabab", ".*a*a", False);
 
 main()
+# Test("Test08", "a", ".", True);
 
 
 

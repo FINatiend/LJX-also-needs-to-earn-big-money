@@ -53,5 +53,11 @@ def Test(testname,str,expected):
     else:
         print("failed")
 
+def isNumericv2(self, s):
+    # python强制转换
+    try:
+        return float(s)
+    except:
+        return 0
 if __name__ == '__main__':
     Test('test1','1a3.14',False)

@@ -27,3 +27,10 @@ def ifEqual(proot1,proot2):
         return False
 
     return ifEqual(proot1.left,proot2.left) and ifEqual(proot1.right,proot2.right)
+
+# 计算机表示小数有误差，不能用==判断，可自定义函数
+def Equal(num1,num2):
+    if (num1 - num2 > -0.0000001 and num1 - num2 < 0.0000001):
+        return True
+    else:
+        return False

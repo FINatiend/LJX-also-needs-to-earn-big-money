@@ -9,7 +9,9 @@ def merge(phead1,phead2):
         pMergeHead = phead1
         pMergeHead.next = merge(phead1.next,phead2)
 
-    if phead2.val <= phead1.val:
+    # 两个 <= 会递归死循环
+    # if phead2.val <= phead1.val:
+    else:
         pMergeHead = phead2
         pMergeHead.next = merge(phead1,phead2.next)
 

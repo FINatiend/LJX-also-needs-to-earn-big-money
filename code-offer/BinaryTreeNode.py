@@ -8,3 +8,14 @@ class BinaryTreeNode():
         if pParent:
             pParent.left = pLeft
             pParent.right = pRight
+
+    def printTree(self,root):
+        if not root:
+            return False
+
+        print(root.value,end='')
+        if root.left:
+            self.printTree(root.left)
+        if root.right:
+            self.printTree(root.right)
+

@@ -39,6 +39,33 @@ def printTreeFromTop(rootNode):
     for i in printList:
         print(i,end='')
 
+def printTreeFromTop2(rootNode):
+    if not rootNode:
+        return
+
+    nodeList = [rootNode]
+    printList = []
+    ifLeftToRight = True
+
+    while(nodeList):
+        currentStack,nextStack = [],[]
+
+        for node in nodeList:
+            currentStack.append(node.value)
+            if node.left:
+                nextStack.append(node.left)
+            if node.right:
+                nextStack.append(node.right)
+
+        if not ifLeftToRight:
+            currentStack.reverse()
+
+        printList.append(currentStack)
+        ifLeftToRight = not ifLeftToRight
+        nodeList = nextStack
+
+    for i in printList:
+        print(i,end='')
 def Test1():
     pNode10 = BinaryTreeNode.BinaryTreeNode(10);
     pNode6 = BinaryTreeNode.BinaryTreeNode(6);
@@ -55,7 +82,7 @@ def Test1():
     pNode10.printTree(pNode10)
 
     print("The nodes from top to bottom, from left to right are: \n");
-    printTreeFromTop(pNode10)
+    printTreeFromTop2(pNode10)
 
 if __name__ == '__main__':
     Test1()

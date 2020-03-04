@@ -55,9 +55,44 @@ def Test1():
 
     pNode1.printList()
 
-    Clone(pNode1)
+    pNode1 = Clone3(pNode1)
 
     pNode1.printList()
+
+def Clone2(pHead):
+    # write code here
+    if  pHead==None:
+        return None
+    # pHead.printList()
+
+    newNode=ComlplexListNode.ListNode(pHead.val)
+    newNode.random=pHead.sibling
+    newNode.next=Clone2(pHead.next)
+    # print("new:")
+    # newNode.printList()
+    return newNode
+
+def Clone3(pHead):
+    if not pHead:
+        return
+    pNode = pHead
+    pCloneHead = newNode = ComlplexListNode.ListNode(pNode.val)
+    while pNode:
+
+        newNode.val = pNode.val
+        newNode.sibling = pNode.sibling
+
+        pNode = pNode.next
+        if pNode:
+            # 每一个node都要是新的节点，才是一条新的链
+            newNode.next = ComlplexListNode.ListNode(None)
+            newNode = newNode.next
+
+    return pCloneHead
+
+
+    return newNode
+
 
 
 if __name__ == '__main__':

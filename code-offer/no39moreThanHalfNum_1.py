@@ -3,7 +3,6 @@ def MoreThanHalfNum(numbers,length):
     if not numbers and length<=0:
         return 0
 
-    # 利用快排算法
     result = numbers[0]
     times = 1
     for i in range(1,length):
@@ -20,3 +19,4 @@ def MoreThanHalfNum(numbers,length):
         if item == result:
             sum += 1
     return result if sum*2 > length else 0
+#21ms5752k

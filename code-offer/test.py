@@ -5,4 +5,7 @@ def test():
     str = str[1:]
     print(str)
 
-test()
+def test1():
+    print(1&1)
+
+test1()

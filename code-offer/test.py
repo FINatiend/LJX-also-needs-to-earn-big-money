@@ -5,4 +5,12 @@ def test():
     str = str[1:]
     print(str)
 
-test()
+def test1():
+    str1 = str(931886)
+    str1 = str1[1:4]
+    num = int(str1)
+    print(len(str1))
+    print(num)
+    print(type(num))
+
+test1()

@@ -13,4 +13,9 @@ def test1():
     print(num)
     print(type(num))
 
-test1()
+def test2():
+    str1 = list(str(931886))
+    str1 = str1[1:4]
+    print(len(str1))
+
+test2()

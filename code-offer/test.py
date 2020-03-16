@@ -6,6 +6,11 @@ def test():
     print(str)
 
 def test1():
-    print(1&1)
+    str1 = str(931886)
+    str1 = str1[1:4]
+    num = int(str1)
+    print(len(str1))
+    print(num)
+    print(type(num))
 
 test1()

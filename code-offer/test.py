@@ -13,4 +13,11 @@ def test1():
     print(num)
     print(type(num))
 
-test1()
+def test2():
+    count = [1]*10
+    print(len(count))
+    count[2] = 2
+    for i in count:
+        print(i)
+
+test2()

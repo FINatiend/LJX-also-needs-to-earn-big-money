@@ -14,8 +14,10 @@ def test1():
     print(type(num))
 
 def test2():
-    str1 = list(str(931886))
-    str1 = str1[1:4]
-    print(len(str1))
+    count = [1]*10
+    print(len(count))
+    count[2] = 2
+    for i in count:
+        print(i)
 
 test2()

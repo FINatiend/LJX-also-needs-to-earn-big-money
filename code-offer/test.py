@@ -19,5 +19,8 @@ def test2():
     count[2] = 2
     for i in count:
         print(i)
-
-test2()
+def test3():
+    res = 'a'
+    res = res + 'b'
+    print(res)
+test3()

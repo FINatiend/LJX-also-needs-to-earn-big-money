@@ -1,3 +1,4 @@
+import copy
 def test():
     str = '7,8,9,0'
     # print(str[1])
@@ -23,4 +24,12 @@ def test3():
     res = 'a'
     res = res + 'b'
     print(res)
-test3()
+def test4():
+    a = [0]*3
+    b = d = c = a
+
+    b[0] = 1
+    e = copy.copy(a)
+    e[0] = 2
+    return b
+test4()

@@ -1,3 +1,5 @@
+# 这里一定要记得起始位置，不是从0开始
+
 def merge(arr,start,middle,end):
     len1 = middle - start + 1
     len2 = end - middle
@@ -12,7 +14,7 @@ def merge(arr,start,middle,end):
 
     i = 0
     j = 0
-    # 归并数组的索引
+    # 归并数组的索引,k从start开始！！！
     k = start
 
     while i < len1 and j <len2:
@@ -34,6 +36,7 @@ def merge(arr,start,middle,end):
         k+=1
 
 def mergeSort(arr,start,end):
+    # 这里一定要记得起始位置，不是从0开始
     if start < end:
         middle = (end+start)//2
 

@@ -1,3 +1,4 @@
+# 巧用二分查找在排序数组中找一个特定数字
 def getNumberOfK(data,length,k):
     number = 0
 

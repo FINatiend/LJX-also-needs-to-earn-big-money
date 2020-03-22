@@ -43,3 +43,11 @@ class ListNode:
             self = self.next
         return False
 
+    def getLength(self):
+         length = 0
+         while self:
+             self = self.next
+             length += 1
+         return length
+
+

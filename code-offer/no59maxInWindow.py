@@ -1,17 +1,28 @@
 def maxInWindow(num,size):
-    if not num or size<=0:
+    if not num or size<=0 or len(num) <= 0 :
         return []
     res = []
-    maxNum = max(num[0],max(num[0],num[1]))
-    window = [num[0],num[1],num[2]]
-    res.append(maxNum)
-    for i in range(3,len(num)):
+    window = []
+    maxNum = -1
 
-        window.pop(0)
-        window.append(num[i])
+    window.append(num[0])
+    for i in range(1,size):
 
         if num[i] > maxNum:
-            maxNum = num[i]
-            res.append(maxNum)
+            window.pop(0)
+        window.append(i)
+
+    for i in range(size,len(num)):
+
+        res.append(num[window[0]])
+
+        while window and num[i] >= num[window[-1]]:
+            window.pop()
+
+        if window and window[0]  <= i - size:
+            window.pop(0)
+        window.append(i)
+
+    return res
 
 

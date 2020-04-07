@@ -5,8 +5,11 @@ def probability(maxValue,number):
     maxSum = maxValue * number
     minSum = number
     totalnum = pow(maxValue,number)
-    probabilityList = [[0 for i in range(minSum,maxSum+1)] for i in range(2)]
-    ratioList = [0 for i in range(len(probabilityList))]
+    # 这里因为是从第一个骰子开始，即1-6开始，所以list不能从一开始就设为maxSum+1-number这样子
+    # probabilityList = [[0 for i in range(maxSum+1-number)] for i in range(2)]
+
+    probabilityList = [[0 for i in range(maxSum+1)] for i in range(2)]
+    ratioList = [0 for i in range(len(probabilityList[0]))]
 
     flag = 0
 
@@ -26,5 +29,11 @@ def probability(maxValue,number):
                 p += 1
 
         flag = 1- flag
+
+    for i in range(len(probabilityList[0])):
+        ratioList[i] = probabilityList[flag][i]/totalnum
+        print(ratioList[i],end=' ')
+
+probability(6,2)
 
 

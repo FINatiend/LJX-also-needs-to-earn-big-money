@@ -1,4 +1,5 @@
-a = 1
-b = 2
-a,b = b,a
-print(a,b)
+a = '1'
+b = '2'
+a = a+ '0'*2
+
+print(len(a))
